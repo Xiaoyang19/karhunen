@@ -5,7 +5,7 @@
 
 KL1D<-function(paramenters){
   # Initialize Eigenspace
-  l = parameters$KL$l;
+  l = parameters$KL$l
   coord = parameters$KL$coord
   x = coord
   M = rep(1,(length(x)))
