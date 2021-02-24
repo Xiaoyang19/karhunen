@@ -4,7 +4,7 @@
 # Xiaoyang Chen
 
 
-KLSPrealization<-function(parameters){
+KL1Drealization<-function(parameters){
   
   library(ggplot2)
   
