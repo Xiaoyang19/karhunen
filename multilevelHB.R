@@ -4,10 +4,12 @@
 # Xiaoyang Chen
 
 multilevelHB<-function(parameters,methods){
+  
   `%notin%` <- Negate(`%in%`)
   setwd("H:/2021Sep/Julio/ChangeDetection/ChangeDetectionR")
   source("make_tree.R") 
   source("multilevelbasis_nested.R")
+  source("testtransform.R")
   
   polymodel<-list()
   params<-list()
@@ -38,6 +40,7 @@ multilevelHB<-function(parameters,methods){
   
   # Test transform
   # parameters <- methods$MLtest(parameters,methods);
+  parameters <- testtransform(parameters,methods)
   
   return(parameters)
 }
