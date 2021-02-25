@@ -16,8 +16,9 @@ hbtrans<-function(fdata, transformcell, ind, datacell, datalevel) {
   levelcoeff = vector()
   dcoeffs = matrix(list(),numofnodes,1)
   ccoeffs = vector()
+  nodeindex = matrix(list(),numofnodes,1)
   
-  
+ 
   # Up to level 0 of HB coefficients
   for (n in numofnodes:1 ) {
   # if is not empty 
@@ -28,6 +29,7 @@ hbtrans<-function(fdata, transformcell, ind, datacell, datalevel) {
       coeff <- c(coeff,localcoeff)
       levelcoeff <- c(  levelcoeff, rep( datalevel[ind[n]],ncol(W) )  )
       dcoeffs[n] <- list(localcoeff)
+      nodeindex[n]<-list(ixds)
       n=n-1
       }
   }
@@ -46,5 +48,6 @@ hbtrans<-function(fdata, transformcell, ind, datacell, datalevel) {
   outputcoeff = rep(0,nfdata)
   outputcoeff[1:length(coeff)] <- coeff
 
-  return(list('outputcoeff'=outputcoeff, 'levelcoeff'=levelcoeff, 'dcoeffs'=dcoeffs, 'ccoeffs'=ccoeffs))
+  return(list('outputcoeff'=outputcoeff, 'levelcoeff'=levelcoeff, 'dcoeffs'=dcoeffs, 'ccoeffs'=ccoeffs,'nodeindex'=nodeindex))
+
 }
