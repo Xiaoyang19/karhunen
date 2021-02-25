@@ -3,7 +3,7 @@
 # 02162021
 # Xiaoyang Chen
 
-KL1D<-function(paramenters){
+KL1D<-function(parameters){
   # Initialize Eigenspace
   l = parameters$KL$l
   coord = parameters$KL$coord
