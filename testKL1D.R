@@ -14,16 +14,19 @@
 # KLMLplot = plotKL1D
 # KLMLtest = testKLML1D
 
-`%notin%` <- Negate(`%in%`)
 setwd("H:/2021Sep/Julio/ChangeDetection/ChangeDetectionR")
-parameters<-list()
+# source('testKL1D.R')
 source('initKL1D.R')
 source('KL1D.R')
 source('multilevelHB.R')
+source('mltransform.R')
+source('testKLML1D.R')
 
+`%notin%` <- Negate(`%in%`)
+
+parameters<-list()
 # parameters = methods.initialization();
 parameters<-initKL1D(parameters)
-
 
 # Create Eigenvectors of Weiner process on a sphere
 # spherical harmonics
@@ -33,3 +36,16 @@ parameters<-KL1D(parameters)
 # Create Multilevel Basis
 # parameters = methods.KLmultilevel(parameters,methods);
 parameters<-multilevelHB(parameters,methods)
+
+# Transfrom input to ML
+# parameters = methods.MLtransform(parameters);
+parameters<-mltransform(parameters)
+
+# Create test input
+# parameters = methods.KLMLtest(parameters)
+# add bump to input data
+parameters<-testKLML1D(parameters)
+
+# Transfrom input with change to ML
+# parameters = methods.MLtransform(parameters);
+parameters<-mltransform(parameters)
