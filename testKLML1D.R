@@ -13,7 +13,7 @@ testKLML1D<-function(parameters){
    # Add Gaussian "bump" to the data
   sbump  <- 0.5   # Mid location
   sigma  <- sqrt(0.001) 
-  maxbump  <- 0.5 
+  maxbump  <- 0.05 
   bump  <- maxbump*exp( - ((coord-sbump)^2)/(sigma^2)  ) 
   
   s1  <- 150/500 
@@ -24,6 +24,7 @@ testKLML1D<-function(parameters){
   
    # Add the bump to the input data
   parameters$ML$input  <- inputdata + bump 
+  parameters$KL$deviation <- bump
 
   
   return(parameters)
