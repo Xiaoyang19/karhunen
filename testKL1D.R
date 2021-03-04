@@ -49,3 +49,9 @@ parameters<-testKLML1D(parameters)
 # Transfrom input with change to ML
 # parameters = methods.MLtransform(parameters);
 parameters<-mltransform(parameters)
+
+# Plot transform
+# parameters = methods.KLMLplot(parameters);
+parameters<-plotKL1D(parameters)
+
+
