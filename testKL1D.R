@@ -21,6 +21,7 @@ source('KL1D.R')
 source('multilevelHB.R')
 source('mltransform.R')
 source('testKLML1D.R')
+source('plotKL1D.R')
 
 `%notin%` <- Negate(`%in%`)
 
